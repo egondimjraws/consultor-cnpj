@@ -14,6 +14,7 @@
 - [Sobre o Projeto](#-sobre-o-projeto)
 - [Funcionalidades](#-funcionalidades)
 - [Instalação](#-instalação)
+  - [Como Git Submodule](#como-git-submodule)
 - [Como Usar](#-como-usar)
   - [Como Biblioteca](#1️⃣-como-biblioteca)
   - [Como CLI](#2️⃣-como-cli)
@@ -74,6 +75,40 @@ venv\Scripts\activate     # Windows
 
 # Instale o pacote
 pip install -e .
+```
+
+### Como Git Submodule
+
+Para usar o `consultor-cnpj` dentro de outro projeto, mantendo o histórico e as atualizações vinculados ao repositório original, adicione-o como submódulo:
+
+```bash
+# Dentro do repositório que vai consumir a biblioteca
+git submodule add https://github.com/egondimjraws/consultor-cnpj.git libs/consultor-cnpj
+git submodule update --init --recursive
+```
+
+Instale o pacote do submódulo em modo editável no ambiente do projeto principal:
+
+```bash
+pip install -e libs/consultor-cnpj
+```
+
+Ao clonar um projeto que já usa esse submódulo, traga o conteúdo do submódulo com:
+
+```bash
+git clone --recurse-submodules <url-do-projeto-principal>
+# ou, se já clonou sem a flag:
+git submodule update --init --recursive
+```
+
+Para atualizar o submódulo para a versão mais recente do `consultor-cnpj`:
+
+```bash
+cd libs/consultor-cnpj
+git pull origin main
+cd ../..
+git add libs/consultor-cnpj
+git commit -m "chore: atualiza submódulo consultor-cnpj"
 ```
 
 ---
