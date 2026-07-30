@@ -120,11 +120,11 @@ git commit -m "chore: atualiza submódulo consultor-cnpj"
 ```python
 from consultor_cnpj import consultar_cnpj, cnpj_status, formatar_cnpj, validar_cnpj
 
-cnpj = "11.222.333/0001-81"
+cnpj = "06.990.590/0001-23"
 
 # Validação local (sem consulta externa)
 validar_cnpj(cnpj)          # True
-formatar_cnpj(cnpj)         # "11222333000181"
+formatar_cnpj(cnpj)         # "06990590000123"
 
 # Consulta em formato padronizado "EMPRESA | STATUS"
 cnpj_status(cnpj)           # "EMPRESA EXEMPLO LTDA | ATIVA"
@@ -143,10 +143,10 @@ status_detalhado(cnpj)
 # {"cnpj": "...", "nome": "...", "status": "...", "abertura": "...",
 #  "atividade_principal": "...", "cidade": "...", "uf": "...", "telefone": "..."}
 
-gerar_relatorio(["11222333000181", "12345678000199"])
+gerar_relatorio(["06990590000123", "12345678000199"])
 # {"total": 2, "validos": 1, "invalidos": 1, "ativos": ..., "inativos": ..., "detalhes": {...}}
 
-formatar_cnpj_visual("11222333000181")  # "11.222.333/0001-81"
+formatar_cnpj_visual("06990590000123")  # "06.990.590/0001-23"
 ```
 
 ### 2️⃣ Como CLI
@@ -154,7 +154,7 @@ formatar_cnpj_visual("11222333000181")  # "11.222.333/0001-81"
 Após `pip install -e .`, o comando `cnpj-consultor` fica disponível no PATH:
 
 ```bash
-cnpj-consultor 11.222.333/0001-81
+cnpj-consultor 06.990.590/0001-23
 # EMPRESA EXEMPLO LTDA | ATIVA
 ```
 
