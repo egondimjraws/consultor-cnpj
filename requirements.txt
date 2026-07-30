@@ -1,0 +1,2 @@
+# Sem dependências externas!
+# Apenas bibliotecas nativas do Python

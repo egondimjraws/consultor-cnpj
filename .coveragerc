@@ -1,0 +1,15 @@
+[run]
+source = consultor_cnpj
+omit =
+    tests/*
+    */__version__.py
+    */cli.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if __name__ == .__main__.:
+    raise AssertionError
+    raise NotImplementedError
+    if TYPE_CHECKING:
